@@ -1,16 +1,21 @@
 class Solution {
     public String solution(String rsp) {
-        StringBuilder result = new StringBuilder();
-
-        for (char ch : rsp.toCharArray()) {
-            if (ch == '2') {
-                result.append('0');
-            } else if (ch == '0') {
-                result.append('5');
-            } else  {
-                result.append('2');
+        char[] cRsp = rsp.toCharArray();
+        StringBuilder answer = new StringBuilder();
+        
+        for (int i = 0; i < cRsp.length; i++) {
+            switch (cRsp[i]) {
+                case '2':
+                    answer.append('0');
+                    break;
+                case '0':
+                    answer.append('5');
+                    break;
+                case '5':
+                    answer.append('2');
+                    break;
             }
         }
-        return result.toString();
+        return answer.toString();
     }
 }
