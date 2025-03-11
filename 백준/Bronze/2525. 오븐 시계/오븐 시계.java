@@ -7,6 +7,8 @@ public class Main {
         int hh = sc.nextInt();
         int mm = sc.nextInt();
         int timer = sc.nextInt();
+        sc.close();
+        
         mm += timer;
         hh += mm / 60;
         mm %= 60;
