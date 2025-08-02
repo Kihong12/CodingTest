@@ -1,22 +1,28 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] arr = new int[3];
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 3; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
 
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
+        Arrays.sort(arr);
 
-        if (a == b && b == c) {
-            System.out.println(10000 + (a * 1000));
-        } else if (a == b || a == c) {
-            System.out.println(1000 + (a * 100));
-        } else if (b == c) {
-            System.out.println(1000 + (b * 100));
+        if (arr[0] == arr[1] && arr[0] == arr[2]) {
+            System.out.println(10000 + arr[0] * 1000);
+        } else if (arr[0] == arr[1]) {
+            System.out.println(1000 + arr[0] * 100);
+        } else if (arr[1] == arr[2]) {
+            System.out.println(1000 + arr[1] * 100);
+        } else if (arr[0] == arr[2]) {
+            System.out.println(1000 + arr[0] * 100);
         } else {
-            System.out.println((Math.max(a, Math.max(b, c)) * 100));
+            System.out.println(arr[2] * 100);
         }
     }
 }
